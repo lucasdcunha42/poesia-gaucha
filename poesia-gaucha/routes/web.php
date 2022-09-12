@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/lista', [PoesiaController::class, 'index']);
+Route::get('/poesia', [PoesiaController::class, 'index']);
+Route::get('/poesia/criar', [PoesiaController::class, 'create']);
+Route::get('/poesia/salvar', [PoesiaController::class, 'create']);

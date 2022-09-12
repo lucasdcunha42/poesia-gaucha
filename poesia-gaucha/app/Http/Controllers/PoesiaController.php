@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Poesia;
 use Illuminate\Http\Request;
 
 class PoesiaController extends Controller
@@ -16,25 +17,20 @@ class PoesiaController extends Controller
         return view('poesias.index')->with('poesias', $poesias);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
     public function create()
     {
-        //
+        return view('poesias.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Response
-     */
     public function store(Request $request)
     {
-        //
+        $nomePoesia = $request->input('nome');
+        $poesia = new Poesia();
+        $poesia->nome = $nomePoesia;
+        $poesia->save();
+
+        return redirect("/poesias");
+
     }
 
     /**
