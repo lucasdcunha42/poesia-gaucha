@@ -9,12 +9,13 @@ class PoesiaController extends Controller
 {
     public function index(Request $request)
     {
-        $poesias = [
-            'Flor do Campo',
-            'Howl',
-            'In a Dream of Chivalry',
-        ];
-        return view('poesias.index')->with('poesias', $poesias);
+        $poesias = Poesia::query()->orderBy('nome')->get();
+        $mensagemSucesso = $request->session()->get('mensagem.sucesso');
+
+        return view('poesias.index')
+            ->with('poesias', $poesias)
+            ->with('mensagemSucesso', $mensagemSucesso);
+
     }
 
     public function create()
@@ -24,12 +25,9 @@ class PoesiaController extends Controller
 
     public function store(Request $request)
     {
-        $nomePoesia = $request->input('nome');
-        $poesia = new Poesia();
-        $poesia->nome = $nomePoesia;
-        $poesia->save();
-
-        return redirect("/poesias");
+        $poesia = Poesia::create($request->all());
+        $request->session()->flash('mensagem.sucesso', "Poesia '{$poesia->nome}' adicionada com sucesso");
+        return to_route('poesias.index');
 
     }
 
@@ -67,14 +65,11 @@ class PoesiaController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
+    public function destroy(Poesia $poesia, Request $request)
     {
-        //
+        $poesia->delete();
+        $request->session()->flash('mensagem.sucesso', "Poesia '{$poesia->nome}' Removida com sucesso");
+
+        return to_route('poesias.index');
     }
 }

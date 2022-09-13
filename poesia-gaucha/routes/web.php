@@ -15,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/poesias');
 });
 
-Route::get('/poesia', [PoesiaController::class, 'index']);
-Route::get('/poesia/criar', [PoesiaController::class, 'create']);
-Route::get('/poesia/salvar', [PoesiaController::class, 'create']);
+Route::resource('/poesias',PoesiaController::class)
+    ->only(['index', 'create', 'store', 'destroy']);

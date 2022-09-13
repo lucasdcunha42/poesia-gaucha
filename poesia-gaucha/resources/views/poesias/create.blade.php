@@ -1,5 +1,6 @@
 <x-layout title="Nova Poesia">
-    <form action="/poesia/salvar" method="post">
+    <form action="{{route('poesias.store')}}" method="post">
+        @csrf
         <div class="mb-3">
             <label for="nome" class="form-label">Nome: </label>
             <input type="text" id="nome" name="nome" class="form-control">
