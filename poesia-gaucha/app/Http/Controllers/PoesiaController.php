@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PoesiasFormRequest;
 use App\Models\Poesia;
 use Illuminate\Http\Request;
 
@@ -23,12 +24,11 @@ class PoesiaController extends Controller
         return view('poesias.create');
     }
 
-    public function store(Request $request)
+    public function store(PoesiasFormRequest $request)
     {
         $poesia = Poesia::create($request->all());
-        $request->session()->flash('mensagem.sucesso', "Poesia '{$poesia->nome}' adicionada com sucesso");
-        return to_route('poesias.index');
-
+        return to_route('poesias.index')
+            ->with('mensagem.sucesso', "Poesia '{$poesia->nome}' adicionada com sucesso");
     }
 
     public function show($id)
@@ -41,7 +41,7 @@ class PoesiaController extends Controller
         return view('poesias.edit')->with('poesia', $poesia);
     }
 
-    public function update(Request $request, Poesia $poesia)
+    public function update(PoesiasFormRequest $request, Poesia $poesia)
     {
         $poesia->fill($request->all());
         $poesia->save();
