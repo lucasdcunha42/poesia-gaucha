@@ -31,38 +31,23 @@ class PoesiaController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
+    public function edit(Poesia $poesia)
     {
-        //
+        return view('poesias.edit')->with('poesia', $poesia);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
+    public function update(Request $request, Poesia $poesia)
     {
-        //
+        $poesia->fill($request->all());
+        $poesia->save();
+
+        return to_route('poesias.index')
+            ->with('mensagem.sucesso' , "Poesia '{$poesia->nome}' atualizada com sucesso");
     }
 
     public function destroy(Poesia $poesia, Request $request)

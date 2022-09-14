@@ -7,16 +7,21 @@
         @endisset
     <ul class="list-group">
         @foreach($poesias as $poesia)
-            <li class="list-group-item">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
                 {{$poesia->nome}}
 
-                <form action="{{route('poesias.destroy', $poesia->id) }}" method="post">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-danger btn-sm">
-                    Excluir
-                </button>
-                </form>
+                <span class="d-flex">
+                    <a href="{{ route('poesias.edit', $poesia->id) }}" class="btn btn-primary btn-sm mb-2">
+                        Alterar
+                    </a>
+                    <form action="{{route('poesias.destroy', $poesia->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger btn-sm">
+                        Excluir
+                    </button>
+                    </form>
+                </span>
             </li>
         @endforeach
     </ul>

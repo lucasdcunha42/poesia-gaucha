@@ -19,4 +19,4 @@ Route::get('/', function () {
 });
 
 Route::resource('/poesias',PoesiaController::class)
-    ->only(['index', 'create', 'store', 'destroy']);
+    ->except(['show']);
