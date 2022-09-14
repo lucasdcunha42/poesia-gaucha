@@ -11,10 +11,10 @@
                 {{$poesia->nome}}
 
                 <span class="d-flex">
-                    <a href="{{ route('poesias.edit', $poesia->id) }}" class="btn btn-primary btn-sm mb-2">
+                    <a href="{{ route('poesias.edit', $poesia->id) }}" class="btn btn-primary btn-sm">
                         Alterar
                     </a>
-                    <form action="{{route('poesias.destroy', $poesia->id) }}" method="post">
+                    <form action="{{route('poesias.destroy', $poesia->id) }}" method="post" class="ms-3">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm">
