@@ -17,6 +17,6 @@ class Poesia extends Model
 
     public function edition()
     {
-        $this->belongsTo(Edition::class);
+        return $this->belongsTo(Edition::class);
     }
 }

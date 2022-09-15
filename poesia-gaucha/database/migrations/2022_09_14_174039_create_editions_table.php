@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('editions', function (Blueprint $table) {
             $table->id();
             $table->unsignedTinyInteger('numero_edicao');
-            $table->string('livreto');
-            $table->string('informacoes');
-            $table->string('resultados');
+            $table->string('livreto')->nullable();
+            $table->string('informacoes')->nullable();
+            $table->string('resultados')->nullable();
 
-            $table->foreignId('poesia_id')->constrained();
+            $table->foreignId('poesia_id')->nullable()->constrained();
 
             $table->timestamps();
         });

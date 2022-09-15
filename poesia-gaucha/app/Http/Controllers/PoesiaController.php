@@ -26,7 +26,18 @@ class PoesiaController extends Controller
 
     public function store(PoesiasFormRequest $request)
     {
+
         $poesia = Poesia::create($request->all());
+        $autor = $poesia
+            ->autors()
+            ->create(['nome'=> 'autor']);
+
+        $edition = $poesia
+            ->edition()
+            ->create([
+                'numero_edicao' => 'edition',
+            ]);
+        dd($edition);
         return to_route('poesias.index')
             ->with('mensagem.sucesso', "Poesia '{$poesia->nome}' adicionada com sucesso");
     }
