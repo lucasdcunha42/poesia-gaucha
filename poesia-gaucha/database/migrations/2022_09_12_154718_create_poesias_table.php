@@ -15,7 +15,17 @@ return new class extends Migration
     {
         Schema::create('poesias', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
+            $table->foreignId('autor_id')->nullable()->constrained();
+            $table->string('nome')->nullable();
+            $table->string('foto')->nullable();
+            $table->string('escola')->nullable();
+            $table->string('link_pdf')->nullable();
+            $table->string('texto')->nullable();
+            $table->foreignId('edition_id')->nullable()->constrained();
+            $table->string('link_video')->nullable();
+            $table->string('link_audio')->nullable();
+            $table->integer('ordem_poema')->nullable();
+
             $table->timestamps();
         });
     }
