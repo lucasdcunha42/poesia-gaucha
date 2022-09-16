@@ -10,8 +10,4 @@ class Autor extends Model
     use HasFactory;
     protected $fillable = ['nome'];
 
-    public function poesias()
-    {
-        return $this->hasMany(Poesia::class);
-    }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('autors', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->foreignId('poesia_id')->constrained();
+
             $table->timestamps();
         });
     }

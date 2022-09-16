@@ -10,13 +10,8 @@ class Poesia extends Model
     use HasFactory;
     protected $fillable = ['nome'];
 
-    public function autors()
-    {
-        return $this->hasMany(Autor::class);
-    }
-
     public function edition()
     {
-        return $this->belongsTo(Edition::class);
+        return $this->hasOne(Edition::class);
     }
 }

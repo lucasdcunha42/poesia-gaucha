@@ -11,8 +11,8 @@ class Edition extends Model
     protected $fillable = ['numero_edicao'];
 
 
-    public function poesias()
+    public function poesia()
     {
-        $this->hasMany(Poesia::class);
+        return $this->belongsTo(Poesia::class);
     }
 }
