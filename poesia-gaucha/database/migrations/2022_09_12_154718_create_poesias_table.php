@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('link_audio')->nullable();
             $table->integer('ordem_poema')->nullable();
 
+            $table->foreignId('editions_id')->references('id')->on('editions');
+
             $table->timestamps();
         });
     }

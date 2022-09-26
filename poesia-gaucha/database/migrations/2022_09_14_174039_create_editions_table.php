@@ -20,8 +20,6 @@ return new class extends Migration
             $table->string('informacoes')->nullable();
             $table->string('resultados')->nullable();
 
-            $table->foreignId('poesia_id')->constrained('poesias');
-
             $table->timestamps();
         });
     }

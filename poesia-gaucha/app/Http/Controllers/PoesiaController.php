@@ -28,12 +28,12 @@ class PoesiaController extends Controller
     {
 
         $poesia = Poesia::create($request->all());
-        dd($poesia);
 
-        $autor = $poesia
+        /**
+         $autor = $poesia
             ->autors()
             ->create(['nome'=> 'autor']);
-        /**
+
         $edition = $poesia
             ->edition()
             ->create([
