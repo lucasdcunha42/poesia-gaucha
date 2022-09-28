@@ -14,5 +14,7 @@
                     @isset($nome) value="{{ $nome }}" @endisset >
         </div>
 
-        <button type="submit" class="btn btn-primary"> Adcionar </button>
+        <button type="submit" class="btn btn-primary btn-sm"> Adcionar </button>
+        <a class="class btn btn-danger btn-sm" href="{{url()->previous()}}" > Voltar </a>
+
     </form>

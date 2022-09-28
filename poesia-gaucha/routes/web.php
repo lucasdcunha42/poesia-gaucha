@@ -18,5 +18,5 @@ Route::get('/', function () {
     return redirect('/poesias');
 });
 
-Route::resource('/poesias',PoesiaController::class)
+Route::resource('/poesias', PoesiaController::class)
     ->except(['show']);

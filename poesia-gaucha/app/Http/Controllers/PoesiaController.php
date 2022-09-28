@@ -28,7 +28,6 @@ class PoesiaController extends Controller
 
     public function store(PoesiasFormRequest $request)
     {
-
         $poesia = Poesia::create($request->all());
 
         /**

@@ -8,7 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Poesia extends Model
 {
     use HasFactory;
-    protected $fillable = ['nome'];
+    protected $fillable = [
+        'nome',
+        'foto',
+        'escola',
+        'link_pdf',
+        'texto',
+        'link_video',
+        'link_audio',
+        'ordem_poema',
+        'editions_id'];
 
     public function edition()
     {
