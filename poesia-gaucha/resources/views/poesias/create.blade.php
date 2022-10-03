@@ -6,8 +6,7 @@
         <div class="row mb-3">
             <div class="col-5">
                 <label for="nome" class="form-label">Poesia: </label>
-                <input type="text"
-                       autofocus
+                <input type="text" autofocus
                        id="nome"
                        name="nome"
                        class="form-control"
