@@ -30,18 +30,6 @@ class PoesiaController extends Controller
     {
         $poesia = Poesia::create($request->all());
 
-        /**
-         $autor = $poesia
-            ->autors()
-            ->create(['nome'=> 'autor']);
-
-        $edition = $poesia
-            ->edition()
-            ->create([
-                'numero_edicao' => 'edition',
-            ]);
-        **/
-
         return to_route('poesias.index')
             ->with('mensagem.sucesso', "Poesia '{$poesia->nome}' adicionada com sucesso");
     }

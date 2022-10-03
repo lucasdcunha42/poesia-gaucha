@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('poesias', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('foto')->nullable();
-            $table->string('escola')->nullable();
-            $table->string('link_pdf')->nullable();
-            $table->string('texto')->nullable();
-            $table->string('link_video')->nullable();
-            $table->string('link_audio')->nullable();
-            $table->integer('ordem_poema')->nullable();
+            $table->string('foto');
+            $table->string('escola');
+            $table->string('link_pdf');
+            $table->string('texto');
+            $table->string('link_video');
+            $table->string('link_audio');
+            $table->integer('ordem_poema');
 
             $table->foreignId('editions_id')->references('id')->on('editions');
 
