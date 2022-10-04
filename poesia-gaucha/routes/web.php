@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PoesiaController;
+use App\Http\Controllers\admin\PoesiaController;
 use Illuminate\Support\Facades\Route;
 
 /*
