@@ -9,7 +9,7 @@ class Poesia extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nome',
+        'titulo',
         'foto',
         'escola',
         'link_pdf',

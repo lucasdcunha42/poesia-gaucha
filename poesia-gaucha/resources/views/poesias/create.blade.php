@@ -5,12 +5,12 @@
 
         <div class="row mb-3">
             <div class="col-5">
-                <label for="nome" class="form-label">Poesia: </label>
+                <label for="titulo" class="form-label">Poesia: </label>
                 <input type="text" autofocus
-                       id="nome"
-                       name="nome"
+                       id="titulo"
+                       name="titulo"
                        class="form-control"
-                       value="{{ old('nome') }}">
+                       value="{{ old('titulo') }}">
             </div>
         </div>
 

@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('poesias', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
+            $table->string('autor');
+            $table->string('titulo');
             $table->string('foto');
             $table->string('escola');
             $table->string('link_pdf');

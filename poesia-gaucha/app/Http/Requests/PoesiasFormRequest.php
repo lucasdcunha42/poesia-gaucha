@@ -24,13 +24,13 @@ class PoesiasFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => ['required', 'min:3'],
+            'titulo' => ['required', 'min:3'],
         ];
     }
 
     public function messages()
     {
         return [
-        'nome.required' => 'O campo nome é obrigatório'];
+        'titulo.required' => 'O campo titulo é obrigatório'];
     }
 }

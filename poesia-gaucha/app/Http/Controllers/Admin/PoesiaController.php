@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\PoesiasFormRequest;
+use App\Http\Controllers\Controller;
 use App\Models\Autor;
 use App\Models\Poesia;
 use Illuminate\Http\Request;
@@ -12,7 +13,7 @@ class PoesiaController extends Controller
     public function index(Request $request)
     {
 
-        $poesias = Poesia::query()->orderBy('nome')->get();
+        $poesias = Poesia::query()->orderBy('titulo')->get();
         $mensagemSucesso = $request->session()->get('mensagem.sucesso');
 
         return view('poesias.index')
@@ -31,7 +32,7 @@ class PoesiaController extends Controller
         $poesia = Poesia::create($request->all());
 
         return to_route('poesias.index')
-            ->with('mensagem.sucesso', "Poesia '{$poesia->nome}' adicionada com sucesso");
+            ->with('mensagem.sucesso', "Poesia '{$poesia->titulo}' adicionada com sucesso");
     }
 
     public function show($id)
@@ -50,13 +51,13 @@ class PoesiaController extends Controller
         $poesia->save();
 
         return to_route('poesias.index')
-            ->with('mensagem.sucesso' , "Poesia '{$poesia->nome}' atualizada com sucesso");
+            ->with('mensagem.sucesso' , "Poesia '{$poesia->titulo}' atualizada com sucesso");
     }
 
     public function destroy(Poesia $poesia, Request $request)
     {
         $poesia->delete();
-        $request->session()->flash('mensagem.sucesso', "Poesia '{$poesia->nome}' Removida com sucesso");
+        $request->session()->flash('mensagem.sucesso', "Poesia '{$poesia->titulo}' Removida com sucesso");
 
         return to_route('poesias.index');
     }

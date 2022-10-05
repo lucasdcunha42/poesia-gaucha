@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\admin\PoesiaController;
+use App\Http\Controllers\Admin\PoesiaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect('/poesias');
-});
+Route::get('/', [PoesiaController::class, 'index']);
 
-Route::resource('/poesias', PoesiaController::class)
+Route::resource('poesias', PoesiaController::class)
     ->except(['show']);
