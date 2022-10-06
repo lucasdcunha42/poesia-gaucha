@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\PoesiasFormRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Autor;
+use App\Models\Edition;
 use App\Models\Poesia;
 use Illuminate\Http\Request;
 
@@ -12,11 +13,10 @@ class PoesiaController extends Controller
 {
     public function index(Request $request)
     {
-
         $poesias = Poesia::query()->orderBy('titulo')->get();
         $mensagemSucesso = $request->session()->get('mensagem.sucesso');
 
-        return view('poesias.index')
+        return view('admin.poesias.index')
             ->with('poesias', $poesias) //(nome da variavel na view, valor da variavel)
             ->with('mensagemSucesso', $mensagemSucesso);
 
@@ -24,7 +24,9 @@ class PoesiaController extends Controller
 
     public function create()
     {
-        return view('poesias.create');
+        $editions = Edition::all();
+        return view('admin.poesias.create')
+            ->with('editions',$editions);
     }
 
     public function store(PoesiasFormRequest $request)
@@ -42,7 +44,7 @@ class PoesiaController extends Controller
 
     public function edit(Poesia $poesia)
     {
-        return view('poesias.edit')->with('poesia', $poesia);
+        return view('admin.poesias.edit')->with('poesia', $poesia);
     }
 
     public function update(PoesiasFormRequest $request, Poesia $poesia)

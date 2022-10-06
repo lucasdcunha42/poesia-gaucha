@@ -1,16 +1,16 @@
-<x-layout title="Nova Poesia">
+<x-layout title="Nova Edição">
 
-    <form action="{{ route('poesias.store') }}" method="post">
+    <form action="{{ route('admin.editions.store') }}" method="post">
         @csrf
 
         <div class="row mb-3">
             <div class="col-5">
-                <label for="titulo" class="form-label">Poesia: </label>
+                <label for="titulo" class="form-label">Edição: </label>
                 <input type="text" autofocus
                        id="titulo"
-                       name="titulo"
+                       name="numero_edicao"
                        class="form-control"
-                       value="{{ old('titulo') }}">
+                       value="{{ old('numero_edicao') }}">
             </div>
         </div>
 

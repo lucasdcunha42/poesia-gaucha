@@ -11,7 +11,7 @@
                    id="nome"
                    name="titulo"
                    class="form-control"
-                    @isset($titulo) value="{{ $titulo }}" @endisset >
+                   @isset ($titulo) value="{{ $titulo }}" @endisset >
         </div>
 
         <button type="submit" class="btn btn-primary btn-sm"> Adcionar </button>
