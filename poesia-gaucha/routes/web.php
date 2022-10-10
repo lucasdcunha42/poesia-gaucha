@@ -22,7 +22,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('poesias', PoesiaController::class)->except(['show']);
     Route::resource('editions', EditionController::class);
 });
-
+/*
 Route::get('/edicoes', function (){
     return view('edicoes.create');
 });
+*/

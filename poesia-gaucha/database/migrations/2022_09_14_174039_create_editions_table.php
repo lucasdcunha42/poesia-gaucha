@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('editions', function (Blueprint $table) {
             $table->id();
             $table->unsignedTinyInteger('numero_edicao');
-            $table->string('livreto')->nullable();
-            $table->string('informacoes')->nullable();
-            $table->string('resultados')->nullable();
+            $table->string('livreto');
+            $table->string('informacoes');
+            $table->string('resultados');
 
             $table->timestamps();
         });

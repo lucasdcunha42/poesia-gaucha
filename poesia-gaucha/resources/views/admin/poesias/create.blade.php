@@ -9,7 +9,7 @@
                     <div class="row">
 
                         {{-- Titulo da Poesia--}}
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
                             <label for="titulo">Título</label>
                             <input type="text" autofocus
                             id="titulo"
@@ -18,7 +18,7 @@
                             value="{{ old('titulo') }}">
                         </div>
 
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
                             <label for="autor">Autor</label>
                                 <input type="text" autofocus class="form-control" name="autor" id="autor" value="">
                         </div>
@@ -43,10 +43,11 @@
                             <input type="text" class="form-control" name="foto" id="foto" value="">
                         </div>
 
+                        {{-- Edição da Poesia--}}
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 form-group">
                             <label for="edição">Edição</label>
-                            <select class="form-select" aria-label="Default 0">
-                                <option value="" disabled> Open this select menu </option>
+                            <select class="form-select" name="editions_id" aria-label="Default 0">
+                                <option value="" disabled> Selecione a Edição </option>
                                 @foreach ( $editions as $edition )
                                         <option value="{{$edition->id}}"> {{$edition->numero_edicao}} </option>
                                 @endforeach

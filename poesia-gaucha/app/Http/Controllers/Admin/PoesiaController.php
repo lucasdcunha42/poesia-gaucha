@@ -33,7 +33,7 @@ class PoesiaController extends Controller
     {
         $poesia = Poesia::create($request->all());
 
-        return to_route('poesias.index')
+        return to_route('admin.poesias.index')
             ->with('mensagem.sucesso', "Poesia '{$poesia->titulo}' adicionada com sucesso");
     }
 
@@ -52,7 +52,7 @@ class PoesiaController extends Controller
         $poesia->fill($request->all());
         $poesia->save();
 
-        return to_route('poesias.index')
+        return to_route('admin.poesias.index')
             ->with('mensagem.sucesso' , "Poesia '{$poesia->titulo}' atualizada com sucesso");
     }
 
@@ -61,6 +61,6 @@ class PoesiaController extends Controller
         $poesia->delete();
         $request->session()->flash('mensagem.sucesso', "Poesia '{$poesia->titulo}' Removida com sucesso");
 
-        return to_route('poesias.index');
+        return to_route('admin.poesias.index');
     }
 }

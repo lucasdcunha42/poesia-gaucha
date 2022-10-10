@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EditionsFormRequest;
 use App\Models\Edition;
 use Illuminate\Http\Request;
 
@@ -36,12 +37,15 @@ class EditionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+
+    public function store(EditionsFormRequest $request)
     {
-        //
+        $edition = Edition::create($request->all());
+
+        return to_route('admin.editions.index')
+        ->with('mensagem.sucesso', "'{$edition->numero_edicao}'º Edição adicionada com sucesso");
+
     }
 
     /**
@@ -58,12 +62,16 @@ class EditionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  EditionsFormRequest  $request
+     * @param  Editions  $edition
      */
-    public function edit($id)
+    public function edit(EditionsFormRequest $request, Edition $edition)
     {
-        //
+        $edition->fill($request->all());
+        $edition->save();
+
+        return to_route('admin.editions.index')
+        ->with('mensagem.sucesso', "'{$edition->titulo}'º Edição atualizada com sucesso");
     }
 
     /**

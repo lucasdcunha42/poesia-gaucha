@@ -18,12 +18,10 @@ return new class extends Migration
             $table->string('autor');
             $table->string('titulo');
             $table->string('foto');
-            $table->string('escola');
             $table->string('link_pdf');
             $table->string('texto');
             $table->string('link_video');
             $table->string('link_audio');
-            $table->integer('ordem_poema');
 
             $table->foreignId('editions_id')->references('id')->on('editions');
 

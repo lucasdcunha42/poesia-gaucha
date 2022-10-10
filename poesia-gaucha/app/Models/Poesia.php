@@ -10,13 +10,12 @@ class Poesia extends Model
     use HasFactory;
     protected $fillable = [
         'titulo',
+        'autor',
         'foto',
-        'escola',
         'link_pdf',
         'texto',
         'link_video',
         'link_audio',
-        'ordem_poema',
         'editions_id'];
 
     public function edition()
