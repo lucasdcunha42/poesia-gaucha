@@ -24,11 +24,11 @@
                         <td>{{substr($edition->resultados, 0, 100)}}...</td>
                         <td>
                             <span class="d-flex justify-content-xl-center">
-                                <a href="{{ route('admin.poesias.edit', $edition->id) }}" class="btn btn-primary btn-sm">
+                                <a href="{{ route('admin.editions.edit', $edition->id) }}" class="btn btn-primary btn-sm">
                                     Alterar
                                 </a>
 
-                                <form action="{{route('admin.poesias.destroy', $edition->id) }}"
+                                <form action="{{route('admin.editions.destroy', $edition->id) }}"
                                     method="post"
                                     class="ms-3">
                                 @csrf

@@ -26,7 +26,7 @@ class PoesiaController extends Controller
     {
         $editions = Edition::all();
         return view('admin.poesias.create')
-            ->with('editions',$editions);
+            ->with('editions', $editions);
     }
 
     public function store(PoesiasFormRequest $request)

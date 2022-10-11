@@ -67,33 +67,35 @@ class EditionController extends Controller
      */
     public function edit(EditionsFormRequest $request, Edition $edition)
     {
-        $edition->fill($request->all());
-        $edition->save();
+        return view('admin.editions.edit')->with('edition', $edition);
 
-        return to_route('admin.editions.index')
-        ->with('mensagem.sucesso', "'{$edition->titulo}'º Edição atualizada com sucesso");
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+    public function update(EditionsFormRequest $request, Edition $edition)
     {
-        //
+        $edition->fill($request->all());
+        $edition->save();
+
+        return to_route('admin.editions.index')
+            ->with('mensagem.sucesso' , "'{$edition->numero_edicao}'º edição atualizada com sucesso");
     }
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  EditionsFormRequest  $request
+     * @param  Editions  $edition
      */
-    public function destroy($id)
+    public function destroy(EditionsFormRequest $editionsFormRequest, Edition $edition)
     {
-        //
+        $edition->delete();
+        $editionsFormRequest->session()
+        ->flash('mensagem.sucesso', "'{$edition->numero_edicao}'º edição removida com sucesso");
+
+        return to_route('admin.editions.index');
     }
 }

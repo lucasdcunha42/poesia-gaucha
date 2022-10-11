@@ -24,12 +24,14 @@ class EditionsFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'numero_edicao' => ['required', 'min:3'],
+            'numero_edicao' => ['unique:editions'],
         ];
     }
     public function messages()
     {
         return [
-        'numero_edicao.required' => 'O campo numero_edicao é obrigatório'];
+        'numero_edicao.required' => 'O campo edição é obrigatório',
+        'numero_edicao.unique' => 'Edição ja cadastrada'];
+
     }
 }

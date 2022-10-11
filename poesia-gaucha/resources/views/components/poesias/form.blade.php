@@ -14,6 +14,15 @@
                    @isset ($titulo) value="{{ $titulo }}" @endisset >
         </div>
 
+        <div class="mb-3">
+            <label for="Autor" class="form-label">Autor: </label>
+            <input type="text"
+                   id="autor"
+                   name="autor"
+                   class="form-control"
+                   @isset ($poesia->autor) value="{{ $poesia->autor }}" @endisset >
+        </div>
+
         <button type="submit" class="btn btn-primary btn-sm"> Adcionar </button>
         <a class="class btn btn-danger btn-sm" href="{{url()->previous()}}" > Voltar </a>
 
