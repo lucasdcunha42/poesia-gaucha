@@ -44,6 +44,7 @@ class PoesiaController extends Controller
 
     public function edit(Poesia $poesia)
     {
+        
         return view('admin.poesias.edit')->with('poesia', $poesia);
     }
 
