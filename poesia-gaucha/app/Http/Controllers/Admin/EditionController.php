@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Edition\UpdateRequest;
 use App\Http\Requests\StoreRequest;
 use App\Models\Edition;
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
 
 class EditionController extends Controller
@@ -64,7 +63,7 @@ class EditionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Editions  $edition
+     * @param  Edition  $edition
      */
     public function edit(Edition $edition)
     {
