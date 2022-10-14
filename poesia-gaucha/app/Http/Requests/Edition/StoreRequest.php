@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EditionsFormRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class EditionsFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'numero_edicao' => ['unique:editions'],
+            'numero_edicao' => 'require|unique:editions',
         ];
     }
     public function messages()

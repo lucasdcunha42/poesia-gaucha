@@ -9,10 +9,10 @@
         <div class="col-1">
             <label for="numero_edicao" class="form-label">Edição: </label>
             <input type="text" autofocus
-                id="numero_edicao"
+                id="titulo"
                 name="numero_edicao"
                 class="form-control"
-                @isset ($numero_edicao) value="{{ $numero_edicao }}" @endisset >
+                @isset ($titulo) value="{{ $titulo }}" @endisset >
         </div>
 
         <div class="col-4">

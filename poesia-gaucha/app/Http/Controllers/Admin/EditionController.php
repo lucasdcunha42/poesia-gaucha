@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\EditionsFormRequest;
+use App\Http\Requests\Edition\UpdateRequest;
+use App\Http\Requests\StoreRequest;
 use App\Models\Edition;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
 
 class EditionController extends Controller
@@ -39,7 +41,7 @@ class EditionController extends Controller
      *
      */
 
-    public function store(EditionsFormRequest $request)
+    public function store(StoreRequest $request)
     {
         $edition = Edition::create($request->all());
 
@@ -62,10 +64,9 @@ class EditionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  EditionsFormRequest  $request
      * @param  Editions  $edition
      */
-    public function edit(EditionsFormRequest $request, Edition $edition)
+    public function edit(Edition $edition)
     {
         return view('admin.editions.edit')->with('edition', $edition);
 
@@ -76,7 +77,7 @@ class EditionController extends Controller
      *
      */
 
-    public function update(EditionsFormRequest $request, Edition $edition)
+    public function update(UpdateRequest $request, Edition $edition)
     {
         $edition->fill($request->all());
         $edition->save();
@@ -87,13 +88,12 @@ class EditionController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     * @param  EditionsFormRequest  $request
-     * @param  Editions  $edition
+     * @param  Edition  $edition
      */
-    public function destroy(EditionsFormRequest $editionsFormRequest, Edition $edition)
+    public function destroy(Request $request, Edition $edition)
     {
         $edition->delete();
-        $editionsFormRequest->session()
+        $request->session()
         ->flash('mensagem.sucesso', "'{$edition->numero_edicao}'º edição removida com sucesso");
 
         return to_route('admin.editions.index');
