@@ -68,6 +68,12 @@
 
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 form-group">
                             <label for="edição">Edição</label>
+                            <input type="text"
+                            class="form-control"
+                            name="edition"
+                            id="edition"
+                            @isset ($edition) value="{{ $edition }}" @endisset >
+
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12 form-group">
@@ -83,7 +89,8 @@
 
                         <div class="">
                             <button type="submit" class="btn btn-primary btn-sm"> Alterar </button>
-                            <a class="class btn btn-danger btn-sm" href="{{url()->previous()}}" > Voltar </a>                        </div>
+                            <a class="class btn btn-danger btn-sm" href="{{url()->previous()}}" > Voltar </a>
+                        </div>
                     </div>
                 </div>
             </div>

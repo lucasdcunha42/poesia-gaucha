@@ -27,19 +27,19 @@
                 <img src="" width="50" height="50" alt="">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{route('admin.poesias.index')}}">Poesias</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{route('admin.editions.index')}}">Edicões</a>
-                  </li>
-                </ul>
-              </div>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{route('admin.poesias.index')}}">Poesias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{route('admin.editions.index')}}">Edicões</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-          </nav>
+        </nav>
 
         {{ $slot }}
     </div>

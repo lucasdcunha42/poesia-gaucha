@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedTinyInteger('numero_edicao');
             $table->string('livreto');
-            $table->string('informacoes');
-            $table->string('resultados');
+            $table->string('informacoes', 6500);
+            $table->string('resultados', 3500);
 
             $table->timestamps();
         });

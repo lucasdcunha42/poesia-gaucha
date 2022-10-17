@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('texto', 6500);
             $table->string('link_video');
             $table->string('link_audio');
+            $table->integer('ordem_poema')->nullable();
 
             $table->foreignId('editions_id')->references('id')->on('editions');
 
