@@ -4,10 +4,10 @@
         :titulo="$poesia->titulo"
         :foto="$poesia->foto"
         :pdf="$poesia->link_pdf"
-        :texto="$poesia->texto"
         :video="$poesia->link_video"
         :audio="$poesia->link_audio"
         :edition="$poesia->editions_id"
+        :texto="$poesia->texto"
         :update="true">
 
     </x-poesias.form>

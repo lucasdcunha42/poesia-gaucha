@@ -66,7 +66,6 @@
                             @isset ($foto) value="{{ $foto }}" @endisset >
                         </div>
 
-                        {{-- Edição da Poesia--}}
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 form-group">
                             <label for="edição">Edição</label>
                         </div>
@@ -78,7 +77,7 @@
                                 name="texto"
                                 rows="12"
                                 id="texto"
-                                @isset ($texto) value="{{ $texto }}" @endisset >
+                                @isset ($texto) value="{{ $texto }}" @endisset >{{ $texto }}
                                 </textarea>
                         </div>
 

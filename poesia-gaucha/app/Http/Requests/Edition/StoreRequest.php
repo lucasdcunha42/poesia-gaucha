@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Edition;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,7 +24,7 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'numero_edicao' => 'require|unique:editions',
+            'numero_edicao' => 'required|unique:editions',
         ];
     }
     public function messages()

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('titulo');
             $table->string('foto');
             $table->string('link_pdf');
-            $table->string('texto');
+            $table->string('texto', 6500);
             $table->string('link_video');
             $table->string('link_audio');
 
